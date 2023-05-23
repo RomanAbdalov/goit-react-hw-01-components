@@ -1,6 +1,7 @@
 import Profile from './Profile';
-import { Wrapper } from './Profile.styled';
 import Statistics from './Statistics';
+import { FriendList } from 'FriendList';
+import friends from '../friends.json';
 import data from '../data.json';
 import user from '../user.json';
 
@@ -19,18 +20,17 @@ export default function App() {
         color: '#010101',
       }}
     >
-      <Wrapper>
-        <Profile
-          username={user.username}
-          tag={user.tag}
-          location={user.location}
-          avatar={user.avatar}
-          followers={user.stats.followers}
-          views={user.stats.views}
-          likes={user.stats.likes}
-        />
-      </Wrapper>
+      <Profile
+        username={user.username}
+        tag={user.tag}
+        location={user.location}
+        avatar={user.avatar}
+        followers={user.stats.followers}
+        views={user.stats.views}
+        likes={user.stats.likes}
+      />
       <Statistics key={data.id} title="Upload stats" stats={data} />
+      <FriendList friends={friends} />
     </div>
   );
 }
