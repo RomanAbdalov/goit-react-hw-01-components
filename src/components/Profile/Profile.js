@@ -12,8 +12,15 @@ import {
   Wrapper,
 } from './Profile.styled';
 
-export default function Profile(props) {
-  const { username, tag, location, avatar, followers, views, likes } = props;
+export default function Profile({
+  username,
+  tag,
+  location,
+  avatar,
+  followers,
+  views,
+  likes,
+}) {
   return (
     <Wrapper>
       <Description>

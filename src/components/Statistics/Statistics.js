@@ -8,8 +8,7 @@ import {
   Title,
 } from './Statistic.styled';
 
-export default function Statistics(props) {
-  const { title, stats } = props;
+export default function Statistics({ title, stats }) {
   return (
     <Section>
       {title && <Title>{title}</Title>}
@@ -28,8 +27,11 @@ export default function Statistics(props) {
 
 Statistics.propTypes = {
   title: PropTypes.string,
-  stats: PropTypes.array.isRequired,
-  id: PropTypes.string,
-  label: PropTypes.string,
-  percentage: PropTypes.number,
+  stats: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      label: PropTypes.string.isRequired,
+      percentage: PropTypes.number.isRequired,
+    })
+  ).isRequired,
 };
